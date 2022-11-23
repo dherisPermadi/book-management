@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Set the ENV Variable
+  - Create .env file
+  - Set value to variables DATABASE_USERNAME,DATABASE_PASSWORD and DATABASE_NAME
 
-Things you may want to cover:
+# Gem Install
+  - run Bundle Install
+ 
+# Database Build
+  - run rake db:create
+  - run rake db:migrate
 
-* Ruby version
+# Run Test-Case
+  - run ruby test/unit/author_test.rb to test authors
+  - run ruby test/unit/book_test.rb to test books
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Generate data from JSONS
+  - run rake db:seed
