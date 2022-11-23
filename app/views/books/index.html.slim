@@ -1,0 +1,52 @@
+.container
+  = render 'shared/flash_messages'
+  .row
+    .col-xl-9
+      - if @books.present?
+        .card
+          .card-header.d-flex.justify-content-between
+            h3.card-title = "Master - Book"
+            .ft-right
+              = link_to 'Master Author', authors_path, class: 'btn btn-secondary'
+              | &nbsp;
+              = link_to 'New Book', new_book_path, class: 'btn btn-secondary'
+          .table-responsive
+            table.table.card-table.table-vcenter.text-nowrap.datatable.table-data
+              thead
+                tr
+                  th = 'Title'
+                  th = 'Content Name'
+                  th = 'Author Name'
+                  th = 'Category'
+                  th = 'Year'
+                  th = 'Pages'
+                  th = 'Average Rating'
+                  th.blank-title
+              tbody
+                - @books.each do |book|
+                  tr
+                    td = truncate(book.title, length: 50)
+                    td = truncate(book.content_name, length: 50)
+                    td
+                      = link_to author_path(book.author_id), class: 'text-inherit' do
+                        = truncate(book.author_name, length: 50)
+                    td = book.category
+                    td = book.year
+                    td = book.pages
+                    td = book.average_rating
+                    td.text-right
+                      = link_to book_path(book), title: 'Show Book', class: 'btn btn-secondary btn-sm' do
+                        i.fe.fe-eye
+                      = link_to edit_book_path(book), title: 'Update Book', class: 'btn btn-secondary btn-sm' do
+                        i.fe.fe-edit
+                      = link_to book, data: { confirm: "Are you sure to delete this Book ?" },
+                        method: :delete, title: 'Delete Book', class: 'btn btn-secondary btn-sm' do
+                        i.fe.fe-trash-2
+            = paginate @books
+      - else
+        .alert.alert-info.alert-dismissible
+          h4 = "Data Not Found"
+          .btn-list
+            = link_to "New Book", new_book_path, class: 'btn btn-secondary'
+    .col-xl-3
+      = render 'books/partial/filter'

@@ -1,0 +1,54 @@
+.container
+  .page-header
+    h1.page-title
+      = "Author - #{@author.name.present? ? @author.name : '-'}"
+  .row
+    .col-12
+      = render 'shared/flash_messages'
+      .card
+        .card-body
+          .row
+            .col-12
+              .row.align-items-center.mb-6
+                .col
+                  .h3.m-0.font-weight-normal
+                    = @author.name
+              .row
+                .col-md-4
+                  h5.mb-1
+                    = 'Name'
+                  .text-muted-dark
+                    = @author.name
+                .col-md-4
+                  h5.mb-1
+                    = 'Gender'
+                  .text-muted-dark
+                    = @author.gender
+                .col-md-4
+                  h5.mb-1
+                    = 'Total Book'
+                  .text-muted-dark
+                    = @author.n_books
+              br
+              .row
+                .col-md-4
+                  h5.mb-1
+                    = 'Born'
+                  .text-muted-dark
+                    = @author.born
+                .col-md-4
+                  h5.mb-1
+                    = 'Died'
+                  .text-muted-dark
+                    = @author.died
+              br
+              .row
+                .col
+                  h5.mb-1
+                    = 'Summary'
+                  .text-muted-dark
+                    = @author.summary
+        .card-footer
+          .d-flex
+            .ml-auto
+              = link_to "Back", authors_path, class: 'btn btn-link'

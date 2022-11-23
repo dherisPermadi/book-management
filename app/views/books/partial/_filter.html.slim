@@ -1,0 +1,26 @@
+.card style="background-color: #8B7E74;"
+  = search_form_for @search, html: { autocomplete: "off" }  do |f|
+    .card-header
+      h3.card-title = 'Search Book'
+    .card-body
+      .form-group
+        = f.label 'Author Name', class: 'form-label'
+        = f.search_field :author_name, value: params[:q].present? ? params[:q][:author_name] : '', class: 'form-control', placeholder: "Jack Hensen, Jules Rowand, Fritz"
+      .form-group
+        = f.label 'Title', class: 'form-label'
+        = f.search_field :title_cont, class: 'form-control', placeholder: "Book Title"
+      .form-group
+        = f.label 'Year', class: 'form-label'
+        = f.search_field :year, value: params[:q].present? ? params[:q][:author_name] : '', class: 'form-control', placeholder: "2000, 1995, 2012"
+      .row
+        .col-md-6
+          .form-group
+            = f.label 'Min Pages', class: 'form-label'
+            = f.search_field :pages_gteq, class: 'form-control', placeholder: "1"
+        .col-md-6
+          .form-group
+            = f.label 'Max Pages', class: 'form-label'
+            = f.search_field :pages_lteq, class: 'form-control', placeholder: "100"
+    .card-footer.text-right
+      = link_to 'Clear Filter', books_path, class: 'btn btn-link'
+      = f.submit 'Filter', class: 'btn btn-primary'

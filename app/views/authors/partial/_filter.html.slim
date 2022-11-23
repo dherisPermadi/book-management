@@ -1,0 +1,23 @@
+.card style="background-color: #8B7E74;"
+  = search_form_for @search, html: { autocomplete: "off" }  do |f|
+    .card-header
+      h3.card-title = 'Search Author'
+    .card-body
+      .form-group
+        = f.label 'Name', class: 'form-label'
+        = f.search_field :name_cont, class: 'form-control', placeholder: "Jack Hensen"
+      .form-group
+        = f.label 'Gender', class: 'form-label'
+        = f.search_field :gender_eq, class: 'form-control', placeholder: "m"
+      .row
+        .col-md-6
+          .form-group
+            = f.label 'Min Total Books', class: 'form-label'
+            = f.search_field :n_books_gteq, class: 'form-control', placeholder: "1"
+        .col-md-6
+          .form-group
+            = f.label 'Max Total Books', class: 'form-label'
+            = f.search_field :n_books_lteq, class: 'form-control', placeholder: "50"
+    .card-footer.text-right
+      = link_to 'Clear Filter', authors_path, class: 'btn btn-link'
+      = f.submit 'Filter', class: 'btn btn-primary'

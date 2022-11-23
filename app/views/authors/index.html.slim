@@ -1,0 +1,42 @@
+.container
+  = render 'shared/flash_messages'
+  .row
+    .col-xl-9
+      - if @authors.present?
+        .card
+          .card-header.d-flex.justify-content-between
+            h3.card-title = "Master - Author"
+            .ft-right
+              = link_to 'Master Book', books_path, class: 'btn btn-secondary'
+              | &nbsp;
+              = link_to 'New Author', new_author_path, class: 'btn btn-secondary'
+          .table-responsive
+            table.table.card-table.table-vcenter.text-nowrap.datatable.table-data
+              thead
+                tr
+                  th = 'Name'
+                  th = 'Gender'
+                  th = 'Total Books'
+                  th.blank-title
+              tbody
+                - @authors.each do |author|
+                  tr
+                    td = author.name
+                    td = author.gender
+                    td = author.n_books
+                    td.text-right
+                      = link_to author_path(author), title: 'Show Author', class: 'btn btn-secondary btn-sm' do
+                        i.fe.fe-eye
+                      = link_to edit_author_path(author), title: 'Update Author', class: 'btn btn-secondary btn-sm' do
+                        i.fe.fe-edit
+                      = link_to author, data: { confirm: "Are you sure to delete this Author ?" },
+                        method: :delete, title: 'Delete Author', class: 'btn btn-secondary btn-sm' do
+                        i.fe.fe-trash-2
+            = paginate @authors
+      - else
+        .alert.alert-info.alert-dismissible
+          h4 = "Data Not Found"
+          .btn-list
+            = link_to "New Author", new_author_path, class: 'btn btn-secondary'
+    .col-xl-3
+      = render 'authors/partial/filter'

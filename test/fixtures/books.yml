@@ -1,0 +1,39 @@
+first_book:
+   author_id: 1
+   author_name: 'Aulus Fermus'
+   content_name: '50921.txt.utf-8'
+   year: 2002
+   category : 'Text'
+   genres: ['horror', 'comedy']
+   title: 'Mountain Auckland'
+   average_rating: 8.7
+   pages: 521
+   description: 'Mountain Auckland Monster'
+   language: 'English'
+   release_date: '2000-06-06'
+second_book:
+   author_id: 1
+   author_name: 'Aulus Fermus'
+   content_name: '50922.txt.utf-8'
+   year: 2012
+   category : 'Text'
+   genres: ['comic', 'comedy']
+   title: 'Kodomo Bento'
+   average_rating: 6.2
+   pages: 111
+   description: 'Kodomo Bento Desc'
+   language: 'Japanese'
+   release_date: '2012-05-05'
+second_book:
+   author_id: 2
+   author_name: 'Jessica Rowand'
+   content_name: '50923.txt.utf-8'
+   year: 2012
+   category : 'Audio'
+   genres: ['romance', 'action']
+   title: 'You'
+   average_rating: 9.2
+   pages: 400
+   description: 'You Desc'
+   language: 'ENglish'
+   release_date: '2012-05-25'

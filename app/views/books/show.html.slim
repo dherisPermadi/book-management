@@ -1,0 +1,76 @@
+.container
+  .page-header
+    h1.page-title
+      = "Book - #{@book.title.present? ? @book.title : '-'}"
+  .row
+    .col-12
+      = render 'shared/flash_messages'
+      .card
+        .card-body
+          .row
+            .col-12
+              .row.align-items-center.mb-6
+                .col
+                  .h3.m-0.font-weight-normal
+                    = @book.title
+              .row
+                .col-md-3
+                  h5.mb-1
+                    = 'Content Name'
+                  .text-muted-dark
+                    = @book.content_name
+                .col-md-3
+                  h5.mb-1
+                    = 'Author Name'
+                  .text-muted-dark
+                    = @book.author_name
+                .col-md-3
+                  h5.mb-1
+                    = 'Year'
+                  .text-muted-dark
+                    = @book.year
+                .col-md-3
+                  h5.mb-1
+                    = 'Category'
+                  .text-muted-dark
+                    = @book.category
+              br
+              .row
+                .col-md-3
+                  h5.mb-1
+                    = 'Genres'
+                  .text-muted-dark
+                    = @book.genres.present? ? @book.genres.join(', ') : '-'
+                .col-md-3
+                  h5.mb-1
+                    = 'Pages'
+                  .text-muted-dark
+                    = @book.pages.present? ? @book.pages : 0
+                .col-md-3
+                  h5.mb-1
+                    = 'Average Rating'
+                  .text-muted-dark
+                    = @book.average_rating
+                .col-md-3
+                  h5.mb-1
+                    = 'Language'
+                  .text-muted-dark
+                    = @book.language
+              br
+              .row
+                .col-md-3
+                  h5.mb-1
+                    = 'Release Date'
+                  .text-muted-dark
+                    = @book.release_date
+              br
+              .row
+                .col
+                  h5.mb-1
+                    = 'Description'
+                  .text-muted-dark
+                    = @book.description
+        .card-footer
+          .d-flex
+            .ml-auto
+              = link_to "Back", books_path, class: 'btn btn-link'

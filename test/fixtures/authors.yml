@@ -1,0 +1,16 @@
+first_author:
+   id: 1
+   name: 'Aulus Fermus'
+   gender: 'm'
+   n_books: 0
+   summary : 'First Author Summary'
+   born: '1981-05-27'
+   died: '1999-10-01'
+second_author:
+   id: 2
+   name: 'Jessica Rowand'
+   gender: 'f'
+   n_books: 10
+   summary : 'Second Author Summary'
+   born: '1991-06-06'
+   died: '2018-10-01'
